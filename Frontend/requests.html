@@ -1,0 +1,42 @@
+{%extends 'theme.html'%}
+{%block content%}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Requests Captured</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        Host
+                                    </th>
+                                    <th>
+                                        Content-Length
+                                    </th>
+                                    <th>
+                                        Data
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for Request in DB %}
+                                <tr>
+                                    <td>{{Request.host}}</td>
+                                    <td>{{Request.content_length}}</td>
+                                    <td>{{Request.data}}</td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
